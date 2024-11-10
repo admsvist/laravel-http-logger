@@ -7,5 +7,5 @@ use Illuminate\Http\Response;
 
 interface LogWriter
 {
-    public function logRequest(Request $request, Response $response);
+    public function logRequest(Request $request, Response $response, int $time);
 }
