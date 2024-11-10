@@ -3,6 +3,7 @@
 namespace Spatie\HttpLogger;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -11,7 +12,7 @@ class DefaultLogWriter implements LogWriter
 {
     protected $sanitizer;
 
-    public function logRequest(Request $request)
+    public function logRequest(Request $request, Response $response)
     {
         $message = $this->formatMessage($this->getMessage($request));
 
