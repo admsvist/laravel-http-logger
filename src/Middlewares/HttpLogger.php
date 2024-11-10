@@ -21,10 +21,16 @@ class HttpLogger
 
     public function handle(Request $request, Closure $next)
     {
+        $start = Carbon::now();
+
+        $response = $next($request);
+
+        $time = Carbon::now()->diffInMilliseconds($start);
+
         if ($this->logProfile->shouldLogRequest($request)) {
-            $this->logWriter->logRequest($request);
+            $this->logWriter->logRequest($request, $response, $time);
         }
 
-        return $next($request);
+        return $response;
     }
 }
