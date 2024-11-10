@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Spatie\HttpLogger\LogProfile;
 use Spatie\HttpLogger\LogWriter;
+use Carbon\Carbon;
 
 class HttpLogger
 {
