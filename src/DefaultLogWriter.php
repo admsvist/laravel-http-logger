@@ -14,7 +14,7 @@ class DefaultLogWriter implements LogWriter
 
     public function logRequest(Request $request, Response $response)
     {
-        $message = $this->formatMessage($this->getMessage($request));
+        $message = $this->formatMessage($this->getMessage($request, $response));
 
         Log::channel(config('http-logger.log_channel'))->log(config('http-logger.log_level', 'info'), $message);
     }
